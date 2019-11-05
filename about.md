@@ -1,7 +1,7 @@
 #About Me
 
 <html>
-  <head>
-    <title>Title</title>
-  </head>
+  <body>
+    About ME!!
+  </body>
 </html>
