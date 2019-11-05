@@ -1,14 +1,31 @@
 <!DOCTYPE>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
 <html>
 	<head>
     <title>Celeste Gamabrdella</title>
   </head>
 	<body>
     <ul>
-      {% comment %} <li><a href="home.html">Home</a></li> {% endcomment %}
       <li><a href="about.html">About</a></li>
-      {% comment %} <li><a href="resume.html">Resume</a></li> {% endcomment %}
-      {% comment %} <li><a href="contact.html">Contact Info</a></li> {% endcomment %}
     </ul>
   	It worked!
   </body>
