@@ -24,4 +24,3 @@ li a:hover {
 <ul>
       <li><a href="about.html">About</a></li>
 </ul>
-
