@@ -18,10 +18,21 @@ The team primarly used the following frameworks in the creation of or beta proto
 As for the structure of our application we decided to focus on the ease of use for our users. Which heavily relied on labeling and taking our color choices into consideration when developing. Our main tasks focus no the artists perspective from the application on the following pages:
 - index.html - (Homepage)
 - customization.html - (Artist Portfolio)
+- submit.html (Art Submission)
 - feedback.html - (Feedback Control)
 - search.html - (Job Search)
 
-All features and fuctionality of the site is described below.
+## Features
+Clicking on Hank Smith's first artwork will bring you to the ability to control the feedback on that artwork in which a user can see the options they would have over there own artwork. The implementation of deleting, reporting, and replying to comments is not yet implemented.
+
+The Employment option in the navigation will allow artists to search for job opportunities.
+
+The Login option in the navigation will bring the artists to their portfolio page.
+Right now this shows an artists perspective of the site and the options they would have to customizae their portfolio. The save button of the options selected are yet to be implemented.
+
+From the artists portfolio page an artist can submit a new artwork at the bottom of the page that will bring you to the Art Submission page in which you can click continue to walkthrough the process of submitting adding a project to your portfolio. The functionality of uploading a file is yet to be implemented.
+
+All other design features and fuctionality of the site is described below.
 
 ## Beta Prototype
 
