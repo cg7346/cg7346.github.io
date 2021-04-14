@@ -1,6 +1,6 @@
 # Yet Another Portfolio - YAP
 
-Team Members: Celeste Gambardella, Brandon Chu, Cole Bielchfield, Dylan Gray, Brendan Grau
+Team Members: Celeste Gambardella, Brandon Chu, Cole Bleichfeld, Dylan Green, Brendan Grau
 
 ## System Concept
 
