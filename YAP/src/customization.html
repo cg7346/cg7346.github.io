@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" id="bootstrap-css"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://kit.fontawesome.com/e003bd8ef5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>YAP - Customization</title>
+</head>
+
+<body style="background-color: rgb(34, 31, 31); color: white">
+
+<!--Navigation bar-->
+<nav class = "navbar navbar-expand-sm " style="background-color: yellow;">
+    <h3 style="color:black;">YAP</h3>
+
+    <form class = "form-inline">
+        <input class = "form-control mr-sm-2" id="sea" type = "text" placeholder = "Search">
+        <button class = "btn btn-info" type = "submit" id="btn_usr" style="background-color:white; color: black;">Search</button>
+    </form>
+    <ul class = "nav navbar-nav navbar-right top ml-auto" style="color: black;">
+        <li class = "nav-item">
+            <a class = "nav-link" href = "index.html" style="color: black;">Home
+                <span class = "sr-only">(current)</span>
+            </a>
+        </li>
+        <li class = "nav-item"style="color: black;">
+            <a class = "nav-link" href = "search.html" style="color: black;">Employment</a>
+        </li>
+        <li class = "nav-item"style="color: black;">
+            <a class = "nav-link" href = "customization.html" style="color: black;">Login</a>
+        </li>
+    </ul>
+</nav>
+<!--end of Navigation bar-->
+
+<div class="row py-5 px-4">
+    <div class="col-md-8 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img
+                            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+                            alt="..." width="200" class="rounded mb-2 img-thumbnail">
+                        <a class="btn btn-outline-dark btn-sm btn-block" data-modal-trigger aria-controls="modal-name"
+                           aria-expanded="false" style="background-color: rgb(34, 31, 31); color: white">Edit profile</a>
+                    </div>
+                    <div class="media-body mb-5 text-white">
+                        <h4 class="mt-0 mb-0">Mark Williams</h4>
+                        <p class="small mb-4"><i class="fas fa-map-marker-alt mr-2"></i>New York</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item" style="color: black;">
+                        <h5 class="font-weight-bold mb-0 d-block" style="color: black;">Photography</h5>Specialty
+                    </li>
+                </ul>
+            </div>
+            <!--    About        -->
+            <div class="px-4 py-3">
+                <h5 class="mb-0" style="color: black;">About</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
+                    <script src="https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js"></script>
+                    <script>
+                        CKEDITOR.replace('editor1', {
+                            fullPage: true,
+                            extraPlugins: 'docprops',
+                            // Disable content filtering because if you use full page mode, you probably
+                            // want to  freely enter any HTML content in source mode without any limitations.
+                            allowedContent: true,
+                            height: 320
+                        });
+                    </script>
+                    <button type="button" class="btn btn-outline-dark btn-sm btn-block" data-dismiss="modal">Close
+                    </button>
+                    <button type="button" class="btn btn-primary btn btn-outline-dark btn-sm btn-block">Save changes
+                    </button>
+
+                    <!--                    <p class="font-italic mb-0">Web Developer</p>-->
+                    <!--                    <p class="font-italic mb-0">Lives in New York</p>-->
+                    <!--                    <p class="font-italic mb-0">Photographer</p>-->
+                </div>
+            </div>
+
+            <!-- Featured Projects  -->
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0" style="color: black;">Featured Projects</h5>
+                    <a href="" data-modal-trigger aria-controls="modal-featured" class="btn btn-link text-muted">Select Featured Projects</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active mx-auto">
+                                    <img class="w-100 img-fluid" src="media/A1.jpg" />
+                                </div>
+                                <div class="carousel-item mx-auto mx-auto">
+                                    <img class="w-100 img-fluid" src="media/A3.jpg" />
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--     Projects       -->
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0" style="color: black;">Projects</h5>
+                    <a href="" data-modal-trigger aria-controls="modal-project" class="btn btn-link text-muted">Edit Projects</a>
+                </div>
+                <div class="row">
+                    <a href="feedback.html"><div class="col-lg-6 mb-2 pr-lg-1">
+                        <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                             alt="" class="img-fluid rounded shadow-sm"><a href="" data-modal-trigger aria-controls="modal-project" class="btn btn-link text-muted">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a></a>
+                            </div>
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img
+                            src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                            alt="" class="img-fluid rounded shadow-sm">
+                            <a href="" data-modal-trigger aria-controls="modal-project" class="btn btn-link text-muted">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a></div>
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img
+                            src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                            alt="" class="img-fluid rounded shadow-sm">
+                            <a href="" data-modal-trigger aria-controls="modal-project" class="btn btn-link text-muted">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a>
+                    </div>
+                    <div class="col-lg-6 pl-lg-1"><img
+                            src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                            alt="" class="img-fluid rounded shadow-sm">
+                            <a href="" data-modal-trigger aria-controls="modal-project" class="btn btn-link text-muted">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a></div>
+                </div>
+            </div>
+
+            <a href="submit.html" class="btn btn-outline-dark btn-sm btn-block" aria-expanded="false"
+               style="background-color: rgb(34, 31, 31); color: white;">
+                <h3 style="padding: 3rem">POST NEW ARTWORK</h3>
+            </a>
+
+    </div>
+    </div>
+</div>
+
+<button class="btn" data-modal-trigger aria-controls="modal-settings" style="float: right" style="color: white;">
+    <img style="width: 4em; background-color: white" src="https://img.icons8.com/ios/30/000000/settings--v1.png"/>
+</button>
+
+
+
+<!-- HEADER MODAL -->
+<div id="header-modal" style="background-color: rgb(34, 31, 31); color: white">
+    <script>
+        $(function () {
+            $("#header-modal").load("header-customization.html");
+        });
+    </script>
+</div>
+<!--END OF HEADER MODAL-->
+
+<!-- FEATURED MODAL -->
+<div id="project-featured" style="background-color: rgb(34, 31, 31); color: white">
+    <script>
+        $(function () {
+            $("#project-featured").load("featured-projects-customization.html");
+        });
+    </script>
+</div>
+<!--END OF FEATURED MODAL-->
+
+<!-- PROJECTS MODAL -->
+<div id="project-modal" style="background-color: rgb(34, 31, 31); color: white">
+    <script>
+        $(function () {
+            $("#project-modal").load("project-customization.html");
+        });
+    </script>
+</div>
+<!--END OF PROJECTS MODAL-->
+
+<!-- SETTINGS MODAL -->
+<div id="settings-modal" style="background-color: rgb(34, 31, 31); color: white">
+    <script>
+        $(function () {
+            $("#settings-modal").load("settings-customization.html");
+        });
+    </script>
+</div>
+<!--END OF SETTINGS MODAL-->
+
+</body>
+</html>
