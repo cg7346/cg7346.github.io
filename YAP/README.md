@@ -42,7 +42,7 @@ This is the employment search page. Users will use this page to search for poten
 
 ###  Job Employment Details
 
-![Job Employment Deatails](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Search-2.png)
+![Job Employment Deatails](src/media/Search-2.png)
 
 This is what users see when they click on a Job opportunity in. A popup will appear giving a more detailed description of the opportunity. If the job opportunity has quick apply available, users will be able to click quick apply to automatically submit their portfolio and resume to the company.
 
