@@ -27,16 +27,16 @@ All features and fuctionality of the site is described below.
 
 To see our site prototype up and running you can click on the flowing link:
 
-[YAP Website]: https://cg7346.github.io/YAP/src/	"Homepage"
+[YAP Website]: https://cg7346.github.io/YAP/src/	"YAP Website Link"
 
 ### Homepage
 
-![Homepage](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Homepage.png)
+![Homepage](src/media/Homepage.png)
 The homepage for YAP contains sets of artwork beneath the names of the users that uploaded them in a timeline fashion. This provides a simplistic overview of each respective portfolio. The user can keep scrolling towards the right in a sort of “carousel” motion, to find others. This is below the standard navigation bar and header, which contains buttons that take you back to the homepage, allow you to search YAP, or log in and go to your profile.
 
 ### Employment Search
 
-![Employment Search](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Search-1.png)
+![Employment Search](src/media/Search-1.png)
 
 This is the employment search page. Users will use this page to search for potential employment opportunities. Advanced employment filters are available on the left of the page to narrow down the user’s search. Lightning bolt icons let the user know that that particular job is accepting automatic submission of a portfolio and resume through our “Quick Apply” feature. 
 
@@ -54,71 +54,71 @@ This is what a user sees when they successfully submit their job application. It
 
 ### Portfolio Customization Page
 
-![Portfolio Customization Page](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-1.png)
+![Portfolio Customization Page](src/media/Customization-1.png)
 
-![](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-2.png)
+![](src/media/Customization-2.png)
 
-![](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-3.png)
+![](src/media/Customization-3.png)
 
 This is the initial page artists will see when they go to customize their portfolio page. Here they will have the option to change their profile picture through the pencil icon in the top left corner in which they can upload a file through various file management sites: Google Drive, DropBox, or locally stored files on their computer. The pencil icons in each of the various elements let the artists know they can edit the following fields. Meanwhile, the gear icon in the bottom left corner is where the artist can edit the overall portfolio settings including the theme of the portfolio, background color and image, and font style and color. Lastly, the button in the top left corner will allow the user to post new artwork and bring you to that corresponding page.
 
 ### Portfolio Header Section Editing
 
-![Portfolio Header Section Editing](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-4.png)
+![Portfolio Header Section Editing](src/media/Customization-4.png)
 
 This popup appears when an artist clicks on the edit icon in the top section with the artist's name, specialty, and location. Here artists will be able to edit the name displayed at the top of their portfolio, pick their specialty from a dropdown list, and edit their location. The artist will also be able to upload their resume here that will be used if they use the ‘quick apply’ option to any jobs. They will have to agree to the Terms of Use and Privacy Policy before they can save their edits this way they are liable for any inappropriate content they type of upload. Upon saving their changes they will be brought back to the main customization page.
 
 ### Portfolio Selecting Featured Projects
 
-![Portfolio Selecting Featured Projects](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-5.png)
+![Portfolio Selecting Featured Projects](src/media/Customization-5.png)
 
 This popup will be displayed when an artist clicks on the edit icon in the featured projects section. Here they will be able to select multiple projects to be featured at the top of their portfolio page. They will be able to select only a maximum of four projects though which is said underneath the project’s label. Once they are done selecting their featured projects they must click save to see the changes made to their portfolio. Upon clicking save the popup is closed and they are brought back to the main customization page.
 
 ### Portfolio Editing Projects
 
-![Editing Projects](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-6.png)
+![Editing Projects](src/media/Customization-6.png)
 
 This popup is displayed upon an artist clicking on the edit button on a project. They will have the option to edit the title, description, change or edit any tags, the medium, of the project, the start, and end date if applicable, enable or disable comments or ratings, and change the art uploaded. After they agree to the Terms of Use and Privacy Policy they can save the changes they make and be brought back to the main customization page 
 
 ### Portfolio Settings Page
 
-![Settings](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Customization-7.png)
+![Settings](src/media/Customization-7.png)
 
 This popup is displayed upon an artist clicking on the gear button in the bottom right corner. They will have the option to edit the theme, font style, font color, and background color all from a separate dropdown menu. The artist can also upload a background image they might want to include. After they agree to the Terms of Use and Privacy Policy they can save the changes they make and be brought back to the main customization page.
 
 ### Feedback Control
 
-![Feedback Control](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Feedback.png)
+![Feedback Control](src/media/Feedback.png)
 
 This is the feedback control page. Artist users will use this page to report, hide, or delete comments from a selected artwork. The ellipses are used to present a dropdown menu for the corresponding comment. The large arrows are used to switch between artworks. All visible artworks have some of their comments visible; however, the selected artwork has the most and is presented the largest.
 
 ### Art Submission Page
 
-![Art Submission](/src/media/Submit-1.png)
+![Art Submission](src/media/Submit-1.png)
 
 This is the main screen used in an art submission. On the right is a preview of the file they have selected. On the left users will be able to add all relevant information to their art. Required options are title, description, and medium, and will be flagged for the users. The search tags and start and end dates are optional. Additionally, users are able to enable both likes and ratings on the art. Finally, users are able to agree to ToS and submit their art to their YAP profile, this will cause the confirmation popup.
 
 ### Art Upload Page
 
-![Art Upload](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Submit-2.png)
+![Art Upload](src/media/Submit-2.png)
 
 This is the popup that allows users to choose the file they wish to upload. They see this prior to the main submission screen (5.1). The top third can be used to drag and drop files as indicated by the text. In the lower two-thirds are the user's other options. The first opens a window on their computer that allows users to navigate to a file location. The second prompt the user to log into google drive to navigate to a file there. Finally, users can paste in a URL to submit a file directly online. Once a file is selected the user will see the main submission screen (5.1)
 
 ### Art Succesfully Submitted Page
 
-![Art Submission Confirmation](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Submit-3.png)
+![Art Submission Confirmation](src/media/Submit-3.png)
 
 This pop-up informs the user that their art was successfully uploaded to YAP. All the user needs to do to finish the art submission process is to click the button to return to their profile.
 
 ## Workflow Diagram
 
-![Workflow](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Workflow.png)
+![Workflow](src/media/Workflow.png)
 
 The workflow diagram above shows how our various user roles interact with each other. The system consists of our YAP Database and our YAP Web interface. Artists can publish their work on the site so other artists, general users, and employers can view and interact with them. Employers can contact artists to initiate employment negotiations. 
 
 ##Affinity Diagram
 
-![Workflow](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/WAAD.png)
+![Workflow](src/media/WAAD.png)
 
 The WAAD Diagram above was an interesting experience for the team. As expected, we had a few overlapping activity notes that we needed to synthesize into one note. From our work activity notes, we were able to come up with the 5 categories above: Competitors, Employer Artists Interaction, Presentation, Feedback, and Customization. These categories allow us to divide up our requirements and make sure that we are satisfying all aspects of our system. 
 
@@ -145,13 +145,13 @@ The purpose of a usability evaluation of the YAP is to predict the expected perf
 
 ## Social Model
 
-![Social Diagram](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/SocialDiagram.png)
+![Social Diagram](src/media/SocialDiagram.png)
 
 A system social model diagram that shows the major system nodes and the interactions between them.
 
 ## Sample Persona
 
-### Artist
+### Artists
 
 #### Background
 
