@@ -26,8 +26,7 @@ All features and fuctionality of the site is described below.
 ## Beta Prototype
 
 To see our site prototype up and running you can click on the flowing link:
-
-[YAP Website]: https://cg7346.github.io/YAP/src/	"YAP Website Link"
+[YAP Website](https://cg7346.github.io/YAP/src/)
 
 ### Homepage
 
