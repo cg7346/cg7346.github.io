@@ -27,6 +27,7 @@ All features and fuctionality of the site is described below.
 
 To see our site prototype up and running you can click on the flowing link:
 [YAP Website](https://cg7346.github.io/YAP/src/)
+[YAP README.md](https://cg7346.github.io/YAP/)
 
 ### Homepage
 
@@ -47,7 +48,7 @@ This is what users see when they click on a Job opportunity in. A popup will app
 
 ###  Job Employment Submisson Confirmation
 
-![Job Employment Submisson Confirmation](/Users/celestegambardella/OneDrive - rit.edu/SWEN 444/Project Info/Code/YAP/src/media/Search-3.png)
+![Job Employment Submisson Confirmation](src/media/Search-3.png)
 
 This is what a user sees when they successfully submit their job application. It is the same screen as, however, it includes a popup notifying them that their material has been automatically submitted to said job.
 
