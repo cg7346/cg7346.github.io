@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style>
+        .entry:not(:first-of-type) {
+            margin-top: 10px;
+        }
+
+        .glyphicon {
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+<br>
+<!-- Education -->
+<div class="container">
+    <div class="row">
+        <h3>
+            <label class="control-label">Education</label>
+        </h3>
+        <!--  Education Reoccurring   -->
+        <form role="form" class="form-inline">
+            <div id="education" style="background:#f4f4f4;">
+                <div class="entry inline-form col-xs-12">
+                    <h3>School</h3>
+                    <br><br>
+
+                    <h5>Name</h5>
+                    <input class="form-control" name="fields[]" type="text" placeholder="School Name"/>
+
+                    <h5>End Date</h5>
+                    <input class="form-control" name="fields2[]" type="text" placeholder="May 2020"/>
+
+                    <h5>Major</h5>
+                    <input class="form-control" name="fields2[]" type="text" placeholder="Major Name"/>
+
+                    <h5>Minor</h5>
+                    <input class="form-control" name="fields2[]" type="text" placeholder="Minor Name"/>
+
+                    <br>
+                    <button type="button" class="btn btn-success btn-lg btn-add">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add School</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <small style="margin: 15px;">Press to add another school</small>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(document).on('click', '.btn-add', function (e) {
+            e.preventDefault();
+            var controlForm = $('#education:first'),
+                currentEntry = $(this).parents('.entry:first'),
+                newEntry = $(currentEntry.clone()).appendTo(controlForm);
+            newEntry.find('input').val('');
+            controlForm.find('.entry:not(:last) .btn-add')
+                .removeClass('btn-add').addClass('btn-remove')
+                .removeClass('btn-success').addClass('btn-danger')
+                .html('<span class="glyphicon glyphicon-minus"></span>');
+        }).on('click', '.btn-remove', function (e) {
+            e.preventDefault();
+            $(this).parents('.entry:first').remove();
+            return false;
+        });
+    });
+</script>
+</body>
+
+<body>
+<br>
+<!-- Relevant Experience -->
+<div class="container">
+    <div class="row">
+        <h3>
+            <label class="control-label">Relevant Experience</label>
+        </h3>
+        <form role="form" class="form-inline">
+            <div id="relevant-experience">
+                <div class="entry inline-form col-xs-12">
+                    <h3>Experience</h3>
+                    <br><br>
+
+                    <h5>Title</h5>
+                    <input class="form-control" name="fields[]" type="text" placeholder="Title Name"/>
+
+                    <h5>Start Date</h5>
+                    <input class="form-control" name="fields2[]" type="text" placeholder="May 2020"/>
+
+                    <h5>End Date</h5>
+                    <input class="form-control" name="fields3[]" type="text" placeholder=" - Present"/>
+                    <!-- <label class="col-md-4 control-label" for="checkboxes">Current?</label>
+                    <div class="col-md-4">
+                    <label class="checkbox-inline" for="checkboxes-0">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-0" value="yes">
+                    yes
+                  </label>
+                </div> -->
+                    <h5>Company</h5>
+                    <input class="form-control" name="fields4[]" type="text" placeholder="Company Name"/>
+
+                    <h5>Sub-description</h5>
+                    <textarea class="form-control" id="subDescription" name="subDescription"
+                              placeholder="Description"></textarea>
+
+                    <div class="container">
+                        <div class="row">
+                            <!--        Results            -->
+                            <form role="form" class="form-inline">
+                                <div id="results">
+                                    <div class="entry inline-form col-xs-12">
+                                        <h4>Results</h4>
+                                        <br>
+                                        <h5>Name</h5>
+                                        <input class="form-control" name="fields[]" type="text" placeholder="Project Name"/>
+                                        <h5>Description</h5>
+                                        <textarea class="form-control" id="result-description" name="ResultDescription"
+                                                  placeholder="Description"></textarea>
+
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg btn-add">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Result</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <small style="margin: 15px;">Press to add another result</small>
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            $(document).on('click', '.btn-add', function (e) {
+                                e.preventDefault();
+                                var controlForm = $('#results:first'),
+                                    currentEntry = $(this).parents('.entry:first'),
+                                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                                newEntry.find('input').val('');
+                                controlForm.find('.entry:not(:last) .btn-add')
+                                    .removeClass('btn-add').addClass('btn-remove')
+                                    .removeClass('btn-success').addClass('btn-danger')
+                                    .html('<span class="glyphicon glyphicon-minus"></span>');
+                            }).on('click', '.btn-remove', function (e) {
+                                e.preventDefault();
+                                $(this).parents('.entry:first').remove();
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <div class="container">
+                        <div class="row">
+                            <!--        Publications            -->
+                            <form role="form" class="form-inline">
+                                <div id="publications">
+                                    <div class="entry inline-form col-xs-12">
+                                        <h4>Publication</h4>
+                                        <br>
+                                        <h5>Name</h5>
+                                        <input class="form-control" name="fields[]" type="text" placeholder="Project Name"/>
+                                        <h5>End Date</h5>
+                                        <input class="form-control" name="fields[]2" type="text" placeholder="May 2020"/>
+
+                                        <h5>Description</h5>
+                                        <textarea class="form-control" id="pub-description" name="pubDescription[]3"
+                                                  placeholder="Description"></textarea>
+
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg btn-add">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Publication</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <small style="margin: 15px;">Press to add another publication</small>
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            $(document).on('click', '.btn-add', function (e) {
+                                e.preventDefault();
+                                var controlForm = $('#publications:first'),
+                                    currentEntry = $(this).parents('.entry:first'),
+                                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                                newEntry.find('input').val('');
+                                controlForm.find('.entry:not(:last) .btn-add')
+                                    .removeClass('btn-add').addClass('btn-remove')
+                                    .removeClass('btn-success').addClass('btn-danger')
+                                    .html('<span class="glyphicon glyphicon-minus"></span>');
+                            }).on('click', '.btn-remove', function (e) {
+                                e.preventDefault();
+                                $(this).parents('.entry:first').remove();
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <br>
+                    <button type="button" class="btn btn-success btn-lg btn-add">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add School</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <small style="margin: 15px;">Press to add another experience</small>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(document).on('click', '.btn-add', function (e) {
+            e.preventDefault();
+            var controlForm = $('#relevant-experience:first'),
+                currentEntry = $(this).parents('.entry:first'),
+                newEntry = $(currentEntry.clone()).appendTo(controlForm);
+            newEntry.find('input').val('');
+            controlForm.find('.entry:not(:last) .btn-add')
+                .removeClass('btn-add').addClass('btn-remove')
+                .removeClass('btn-success').addClass('btn-danger')
+                .html('<span class="glyphicon glyphicon-minus"></span>');
+        }).on('click', '.btn-remove', function (e) {
+            e.preventDefault();
+            $(this).parents('.entry:first').remove();
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>
+
+<!--&lt;!&ndash; Multiple Radios &ndash;&gt;-->
+<!--<div class="form-group">-->
+<!--    <label class="col-md-4 control-label" for="radios">Multiple Radios</label>-->
+<!--    <div class="col-md-4">-->
+<!--        <div class="radio">-->
+<!--            <label for="radios-0">-->
+<!--                <input type="radio" name="radios" id="radios-0" value="1" checked="checked">-->
+<!--                Option one-->
+<!--            </label>-->
+<!--        </div>-->
+<!--        <div class="radio">-->
+<!--            <label for="radios-1">-->
+<!--                <input type="radio" name="radios" id="radios-1" value="2">-->
+<!--                Option two-->
+<!--            </label>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

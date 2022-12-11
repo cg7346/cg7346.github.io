@@ -1,0 +1,349 @@
+<?php
+use phpformbuilder\Form;
+use phpformbuilder\Validator\Validator;
+
+/* =============================================
+    start session and include form class
+============================================= */
+
+session_start();
+include_once rtrim($_SERVER['DOCUMENT_ROOT'], DIRECTORY_SEPARATOR) . '/phpformbuilder/Form.php';
+
+/* =============================================
+    validation if posted
+============================================= */
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && Form::testToken('contact-form-vertical') === true) {
+    // create validator & auto-validate required fields
+    $validator = Form::validate('contact-form-vertical');
+
+    // additional validation
+    $validator->email()->validate('user-email');
+
+    // recaptcha validation
+    $validator->recaptcha('RECAPTCHA_PRIVATE_KEY_HERE', 'Recaptcha Error')->validate('g-recaptcha-response');
+
+    // check for errors
+    if ($validator->hasErrors()) {
+        $_SESSION['errors']['contact-form-vertical'] = $validator->getAllErrors();
+    } else {
+        // send email
+        $email_config = array(
+            'sender_email'    => 'contact@phpformbuilder.pro',
+            'recipient_email' => '',
+            'subject'         => 'Contact from PHP Form Builder',
+            'reply_to_email'  => 'contact@phpformbuilder.pro',
+            'filter_values'   => 'contact-form-vertical'
+        );
+        $sent_message = Form::sendMail($email_config);
+        // clear the form
+        Form::clear('contact-form-vertical');
+    }
+}
+
+/* ==================================================
+    The Form
+ ================================================== */
+
+$form = new Form('contact-form-vertical', 'vertical', 'novalidate', 'bs4');
+// $form->setMode('development');
+$form->addHtml('<h1>Resume Generator</h1>');
+$form->addHtml('<h2>Contact Info</h2>');
+$form->addInput('text', 'user-name', '', 'Name', 'required=required,placeholder=FirstName LastName');
+$form->addInput('email', 'user-email', '', 'Email', 'required=required');
+$form->addInput('tel', 'user-phone', '', 'Phone', 'required=required,data-intphone=true,data-allow-dropdown=true,data-initial-country=auto');
+$form->addPlugin('intl-tel-input', '#input-4', 'default');
+$form->addIcon( 'user-linkedin', '<i class="fab fa-linkedin-in" aria-hidden="true"></i>', 'before');
+$form->addInput('url', 'user-linkedin', '', 'LinkedIn', '');
+$form->addIcon( 'GitHub', '<i class="fab fa-github-square" aria-hidden="true"></i>', 'before');
+$form->addInput('url', 'GitHub', 'user-github', 'GitHub', '');
+$form->addIcon( 'user-site', '<i class="fas fa-link" aria-hidden="true"></i>', 'before');
+$form->addInput('url', 'user-site', '', 'Website', 'placeholder=website');
+$form->addHtml('<h2>Education</h2>');
+$form->addHtml('<div class="row">
+      <label class="control-label" for="ourField">EDUCATION</label>
+      <form role="form" class="form-inline">
+        <div id="myRepeatingFields">
+          <div class="entry inline-form col-xs-12">
+            <h3 required=required>School</<h3>
+            <h5>Name</h5>
+            <input class="form-control" name="fields[]" type="text" placeholder="School Name" />
+            <h5>End Date</h5>
+            <input class="form-control" name="fields2[]" type="text" placeholder="May 2020" />
+            <h5>Major</h5>
+            <input class="form-control" name="fields2[]" type="text" placeholder="Major Name" />
+            <h5>Minor</h5>
+            <input class="form-control" name="fields2[]" type="text" placeholder="Minor Name" />
+<br>
+            <button type="button" class="btn btn-success btn-lg btn-add">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add School</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <br>
+      <small>Press <span class="glyphicon glyphicon-plus gs"></span> for another field</small>
+    </div>');
+$form->addHtml('<h2>Relevant Experience</h2>');
+$form->addHtml('        <form role="form" class="form-inline">
+            <div id="relevant-experience">
+                <div class="entry inline-form col-xs-12">
+                    <h3>Experience</h3>
+                    <br><br>
+
+                    <h5>Title</h5>
+                    <input class="form-control" name="fields[]" type="text" placeholder="Title Name"/>
+
+                    <h5>Start Date</h5>
+                    <input class="form-control" name="fields2[]" type="text" placeholder="May 2020"/>
+
+                    <h5>End Date</h5>
+                    <input class="form-control" name="fields3[]" type="text" placeholder=" - Present"/>
+                    <!-- <label class="col-md-4 control-label" for="checkboxes">Current?</label>
+                    <div class="col-md-4">
+                    <label class="checkbox-inline" for="checkboxes-0">
+                    <input type="checkbox" name="checkboxes" id="checkboxes-0" value="yes">
+                    yes
+                  </label>
+                </div> -->
+                    <h5>Company</h5>
+                    <input class="form-control" name="fields4[]" type="text" placeholder="Company Name"/>
+
+                    <h5>Sub-description</h5>
+                    <textarea class="form-control" id="subDescription" name="subDescription"
+                              placeholder="Description"></textarea>
+
+                    <div class="container">
+                        <div class="row">
+                            <!--        Results            -->
+                            <form role="form" class="form-inline">
+                                <div id="results">
+                                    <div class="entry inline-form col-xs-12">
+<br>                                <h4>Results</h4>        <h5>Name</h5>
+                                        <input class="form-control" name="fields[]" type="text" placeholder="Project Name"/>
+                                        <h5>Description</h5>
+                                        <textarea class="form-control" id="result-description" name="ResultDescription"
+                                                  placeholder="Description"></textarea>
+
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg btn-add">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Result</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <small style="margin: 15px;">Press to add another result</small>
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            $(document).on(\'click\', \'.btn-add\', function (e) {
+                                e.preventDefault();
+                                var controlForm = $(\'#results:first\'),
+                                    currentEntry = $(this).parents(\'.entry:first\'),
+                                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                                newEntry.find(\'input\').val(\'\');
+                                controlForm.find(\'.entry:not(:last) .btn-add\')
+                                    .removeClass(\'btn-add\').addClass(\'btn-remove\')
+                                    .removeClass(\'btn-success\').addClass(\'btn-danger\')
+                                    .html(\'<span class="glyphicon glyphicon-minus"></span>\');
+                            }).on(\'click\', \'.btn-remove\', function (e) {
+                                e.preventDefault();
+                                $(this).parents(\'.entry:first\').remove();
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <div class="container">
+                        <div class="row">
+                            <!--        Publications            -->
+                            <form role="form" class="form-inline">
+                                <div id="publications">
+                                    <div class="entry inline-form col-xs-12">
+<br>                                        <h4>Publication</h4>                                   <h5>Name</h5>
+                                        <input class="form-control" name="fields[]" type="text" placeholder="Project Name"/>
+                                        <h5>End Date</h5>
+                                        <input class="form-control" name="fields[]2" type="text" placeholder="May 2020"/>
+
+                                        <h5>Description</h5>
+                                        <textarea class="form-control" id="pub-description" name="pubDescription[]3"
+                                                  placeholder="Description"></textarea>
+
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg btn-add">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Result</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <small style="margin: 15px;">Press to add another publication</small>
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            $(document).on(\'click\', \'.btn-add\', function (e) {
+                                e.preventDefault();
+                                var controlForm = $(\'#publications:first\'),
+                                    currentEntry = $(this).parents(\'.entry:first\'),
+                                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                                newEntry.find(\'input\').val(\'\');
+                                controlForm.find(\'.entry:not(:last) .btn-add\')
+                                    .removeClass(\'btn-add\').addClass(\'btn-remove\')
+                                    .removeClass(\'btn-success\').addClass(\'btn-danger\')
+                                    .html(\'<span class="glyphicon glyphicon-minus"></span>\');
+                            }).on(\'click\', \'.btn-remove\', function (e) {
+                                e.preventDefault();
+                                $(this).parents(\'.entry:first\').remove();
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <br>
+                    <button type="button" class="btn btn-success btn-lg btn-add">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add School</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <small style="margin: 15px;">Press to add another experience</small>');
+$form->addHtml('<h2>Experience</h2>');
+$form->addHtml('                    <div class="container">
+                        <div class="row">
+                            <!--        Experiences            -->
+                            <form role="form" class="form-inline">
+                                <div id="experience">
+                                    <div class="entry inline-form col-xs-12">
+<br>                                        <h4>Experience</h4>                                   <h5>Name</h5>
+                                        <input class="form-control" name="fields[]" type="text" placeholder="Activity Name"/>
+
+<h5>Start Date</h5>
+                                        <input class="form-control" name="fields[]2" type="text" placeholder="Jan 2020"/>
+                            <h5>End Date</h5>
+                                        <input class="form-control" name="fields[]3" type="text" placeholder="May 2020"/>
+
+                                        <h5>Description</h5>
+                                        <textarea class="form-control" id="act-description" name="actDescription[]4"
+                                                  placeholder="Description"></textarea>
+
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-lg btn-add">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Experience</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <small style="margin: 15px;">Press to add another Experience</small>');
+$form->addHtml('<h2>Skils</h2>');
+$form->addHtml('<div class="row">
+      <label class="control-label" for="ourField">EDUCATION</label>
+      <form role="form" class="form-inline">
+        <div id="myRepeatingFields">
+          <div class="entry inline-form col-xs-12">
+<h5>Skill</h5>
+            <input class="form-control" name="fields[]" type="text" placeholder="skill type" />
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Include?</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="radios-0">
+      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+      Yes
+    </label>
+	</div>
+  <div class="radio">
+    <label for="radios-1">
+      <input type="radio" name="radios" id="radios-1" value="2">
+      No
+    </label>
+	</div>
+  </div>
+</div>
+<br>
+            <button type="button" class="btn btn-success btn-lg btn-add">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add School</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <br>
+      <small>Press <span class="glyphicon glyphicon-plus gs"></span> for another field</small>
+    </div>');
+$form->addTextarea('message', '', 'Message', 'required=required,class=tinymce');
+$form->addPlugin('tinymce', '#message', 'contact-config');
+$form->addRadio('newsletter', 'Yes', 'yes', 'checked');
+$form->addRadio('newsletter', 'No', 'no', '');
+$form->printRadioGroup('newsletter', 'Subscribe to Newsletter', true, '');
+$form->addRecaptchaV3('RECAPTCHA_PUBLIC_KEY_HERE', 'contact-form-vertical');
+$form->addBtn('submit', 'button-1', '', 'Send <i class="fas fa-envelope" aria-hidden="true"></i>', 'class=btn btn-success');
+$form->addBtn('button', 'btn-group-1-button-1', '', '<i class="fas fa-save" aria-hidden="true"></i> Save', 'class=btn btn-warning', 'btn-group-1');
+$form->addBtn('submit', 'btn-group-1-button-2', '', '<i class="fas fa-check" aria-hidden="true"></i> Submit', 'class=btn btn-primary', 'btn-group-1');
+$form->printBtnGroup('btn-group-1');
+$form->addPlugin('nice-check', 'form', 'default', array('%skin%' => 'gray-dark'));
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Php Form Builder - Bootstrap 4 form</title>
+    <meta name="description" content="">
+
+    <!-- Bootstrap 4 CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Font awesome icons -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- fontawesome5 -->
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+
+    <?php $form->printIncludes('css'); ?>
+</head>
+
+<body>
+
+    <h1 class="text-center">Php Form Builder - Bootstrap 4 form</h1>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-11 col-lg-10">
+                <?php
+                if (isset($sent_message)) {
+                    echo $sent_message;
+                }
+                $form->render();
+                ?>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 4 JavaScript -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <?php
+    $form->printIncludes('js');
+    $form->printJsCode();
+    ?>
+
+</body>
+
+</html>
